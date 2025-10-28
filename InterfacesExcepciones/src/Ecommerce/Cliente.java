@@ -1,8 +1,5 @@
 package Ecommerce;
-
-
 import java.util.Scanner;
-
 public class Cliente implements Notificable, Pago{
     private String nombre;
     private Pago metodoPago;
@@ -15,17 +12,14 @@ public class Cliente implements Notificable, Pago{
     }
     public void cargarProductos(Producto producto){
         this.carrito.agregarProducto(producto);
-    }
-    
+    } 
     public void verCarrito(){
         this.carrito.getProductos();
-    }
-    
+    } 
     @Override
     public void notificarCambio() {
         System.out.println("El estado actual del pedido es: "+ this.carrito.getEstado());
     }
-
     @Override
     public void procesarPago(double monto) {
         String opcion;
@@ -39,7 +33,6 @@ public class Cliente implements Notificable, Pago{
             this.carrito.actualizarEstado("Cancelado");
         }
     }
-
     @Override
     public double calcularTotal() {
         double total = this.carrito.calcularTotal();
