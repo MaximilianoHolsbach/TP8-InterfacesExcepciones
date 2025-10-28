@@ -1,17 +1,13 @@
 package Ecommerce;
-
 import java.util.ArrayList;
-
 public class Pedido implements Pagable{
     private ArrayList<Producto> productos;
     private String estado;
     private double total;
-
     public Pedido() {
         this.estado = "Pendiente";
         this.productos = new ArrayList<>();
     }
-    
     public void agregarProducto(Producto producto){
         try {
             if(producto == null){
@@ -23,22 +19,18 @@ public class Pedido implements Pagable{
             System.err.println("Error: "+error.getMessage());
         }
     }
-
     public String getEstado() {
         return estado;
     }
-
     public double getTotal() {
         return total;
     }
-
     public void getProductos() {
         for (Producto producto : productos) {
             System.out.println("Nombre: "+producto.getNombre()+"\nPrecio: "+producto.getPrecio());
             System.out.println("--------------------------");
         }
-    }
-    
+    } 
     @Override
     public double calcularTotal() {
         for (Producto producto : productos) {
@@ -46,7 +38,6 @@ public class Pedido implements Pagable{
         }
         return this.total;
     }
-
     public void actualizarEstado(String estado){
         try {
             if(estado == null || estado.trim().isEmpty()){
