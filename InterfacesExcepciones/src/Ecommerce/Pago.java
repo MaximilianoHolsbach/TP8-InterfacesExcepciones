@@ -9,5 +9,5 @@ package Ecommerce;
  * @author Maxi
  */
 public interface Pago extends Pagable {
-    public abstract double procesarPago(double monto);
+    public abstract void procesarPago(double monto);
 }

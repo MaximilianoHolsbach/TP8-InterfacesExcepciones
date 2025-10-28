@@ -1,30 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Ecommerce;
 
-/**
- *
- * @author Maxi
- */
-public class TarjetaCredito implements PagoConDescuento {
-    private String nombre;
-    private String numeroTarjeta;
-    private Cliente titular;
+public class TarjetaCredito implements PagoConDescuento{
+    private String entidad;
 
+    public TarjetaCredito(String entidad) {
+        this.entidad = entidad;
+    }
+    
     @Override
-    public double aplicarDescuento(double monto, double descuento) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public double aplicarDescuento(double monto) {
+        return  monto -= monto * 0.1;
     }
 
     @Override
-    public double procesarPago(double monto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void procesarPago(double monto) {
+        System.out.println("Procesando pago con tarjeta por $" + aplicarDescuento(monto));
     }
 
     @Override
     public double calcularTotal() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
 }
